@@ -4,9 +4,9 @@ from datetime import datetime
 
 
 class PaymentStatus(str, Enum):
-    PENDING = "PENDING"
-    SUCCESS = "SUCCESS"
-    FAILED = "FAILED"
+    PENDING = "pending"
+    SUCCESS = "success"
+    FAILED = "failed"
 
 
 class PaymentCreate(BaseModel):
@@ -23,6 +23,5 @@ class PaymentResponse(BaseModel):
     status: PaymentStatus
     transaction_date: datetime
 
-
-class Config:
-    orm_mode = True
+    class Config:
+        from_attributes = True
